@@ -12,8 +12,18 @@
 		<div id="container" style="height: 90%"></div>-->
 		<script>
 			//$(document).ready(getGarageData);
-			window.onload = getConfigData
+			window.onload = setupCharts
 			
+			function setupCharts()
+			{
+				Highcharts.setOptions({
+					global: {
+						useUTC: false
+					}
+				});
+				getConfigData();
+			}
+
 			function getConfigData()
 			{
 				$.getJSON("config.json", "", onConfigData)
